@@ -5,5 +5,6 @@ public enum SortingAlgorithm {
     INSERTION,
     SELECTION,
     QUICK,
+    HEAP,
     MERGE
 }

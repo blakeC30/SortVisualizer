@@ -16,6 +16,7 @@ public class StartPage extends JPanel {
     private JButton insertionButton;
     private JButton selectionButton;
     private JButton quickButton;
+    private JButton heapButton;
 
     public StartPage(Frame frame) {
         super();
@@ -78,7 +79,27 @@ public class StartPage extends JPanel {
         };
         this.add(quickButton);
 
+        heapButton = new JButton("Heap Sort") {
+            {
+                setSize(BUTTON_WIDTH,BUTTON_HEIGHT);
+                setLocation((FRAME_WIDTH - BUTTON_WIDTH) / 2, FIRST_BUTTON_Y + (5 * (BUTTON_HEIGHT + 20)));
+                setVisible(true);
+                setFont(new Font("Arial", Font.BOLD, 30));
+                addActionListener(e -> handleHeap());
+            }
+        };
+        this.add(heapButton);
+
         this.setVisible(true);
+    }
+
+    private void handleHeap() {
+        this.setVisible(false);
+        Graph graph = new Graph(SortingAlgorithm.HEAP, frame);
+        frame.add(graph);
+        frame.addKeyListener(graph);
+        frame.requestFocus();
+        frame.remove(this);
     }
 
     private void handleQuick() {

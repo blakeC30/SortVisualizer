@@ -26,6 +26,7 @@ public class BubbleSort extends AbstractSort {
         int temp = list.get(j);
         list.set(j, list.get(i));
         list.set(i, temp);
-        sleepFor(0.2);
+        if(sleep)
+            sleepFor(0.005);
     }
 }

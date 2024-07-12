@@ -87,6 +87,7 @@ public class QuickSort extends AbstractSort {
         int temp = list.get(j);
         list.set(j, list.get(i));
         list.set(i, temp);
-        sleepFor(1);
+        if(sleep)
+            sleepFor(1);
     }
 }

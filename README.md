@@ -6,6 +6,7 @@ Sorting algorithms:
  - Insertion Sort
  - Selection Sort
  - Quick Sort
+ - Heap Sort
 
 Java version: 21
 

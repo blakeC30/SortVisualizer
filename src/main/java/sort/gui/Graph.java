@@ -69,11 +69,14 @@ public class Graph extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        Thread thread = null;
         if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-            (new Thread(() -> sort.sort())
+            (thread = new Thread(() -> sort.sort())
             ).start();
         }
         else if(e.getKeyCode() == KeyEvent.VK_N) {
+            if(thread != null)
+                thread.interrupt();
             this.setVisible(false);
             frame.add(new StartPage(frame));
             frame.remove(this);
@@ -92,6 +95,7 @@ public class Graph extends JPanel implements KeyListener {
             case INSERTION -> this.sort = new InsertionSort(list);
             case SELECTION -> this.sort = new SelectionSort(list);
             case QUICK -> this.sort = new QuickSort(list);
+            case HEAP -> this.sort = new HeapSort(list);
         };
     }
 

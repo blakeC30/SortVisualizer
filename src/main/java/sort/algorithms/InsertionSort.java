@@ -19,14 +19,16 @@ public class InsertionSort extends AbstractSort{
                     list.remove(i);
                     list.add(idx + 1, num);
                     added = true;
-                    sleepFor(15);
+                    if(sleep)
+                        sleepFor(15);
                 }
                 idx--;
             }
             if(!added) {
                 list.remove(i);
                 list.addFirst(num);
-                sleepFor(15);
+                if(sleep)
+                    sleepFor(15);
             }
         }
     }

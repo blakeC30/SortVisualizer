@@ -51,6 +51,7 @@ public class MergeSort extends AbstractSort{
         for(int i = startIdx; i < endIdx; i++) {
             list.set(i, result.get(i - startIdx));
         }
-        sleepFor(10);
+        if(sleep)
+            sleepFor(10);
     }
 }
